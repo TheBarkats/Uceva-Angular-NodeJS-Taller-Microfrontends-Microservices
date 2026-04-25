@@ -52,6 +52,40 @@ export const routes: Routes = [
     },
 
   /**
+   * Ruta de órdenes.
+   *
+   * @remarks
+   * Renderiza el componente `OrdersPage`, encargado
+   * de mostrar y gestionar el listado de órdenes.
+   */
+  {
+        path: 'orders',
+        loadComponent: () =>
+            loadRemoteModule({
+                type: 'module',
+                remoteEntry: 'http://localhost:4203/remoteEntry.js',
+                exposedModule: './OrdersPage',
+        }).then(m => m.OrdersPage),
+    },
+
+  /**
+   * Ruta de reseñas.
+   *
+   * @remarks
+   * Renderiza el componente `ReviewsPage`, encargado
+   * de mostrar y gestionar el listado de reseñas.
+   */
+  {
+        path: 'reviews',
+        loadComponent: () =>
+            loadRemoteModule({
+                type: 'module',
+                remoteEntry: 'http://localhost:4204/remoteEntry.js',
+                exposedModule: './ReviewsPage',
+        }).then(m => m.ReviewsPage),
+    },
+
+  /**
    * Ruta comodín.
    *
    * @remarks
